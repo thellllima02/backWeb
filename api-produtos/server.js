@@ -1,17 +1,18 @@
 const express = require('express')
+const clientsRoutes = require("./routers/clients.js")
+const productsRoutes = require("./routers/produtos.js")
+
 const port = 4000
 const app = express();
 
-app.use("/", (req, res) => {
-    return res.send("Hello Word")
-})
+app.use = express();
 
-app.use("/produtos", (req, res) =>{
-    return res.send("EndPoint de Produtos")
-})
+app.use('/compras', comprasRoutes)
+app.use("/clientes", clientsRoutes)
+app.use("produtos", productsRoutes)
 
-app.use("/cliente", (req, res) =>{
-    return res.send("EndPoint de Cliente")
+app.use("/", (req, res) =>{
+    return res.send("API de gerenciamento de compras")
 })
 
 app.listen(port, ()=> {
